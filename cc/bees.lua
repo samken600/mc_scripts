@@ -9,18 +9,18 @@ while true do
 
     if redstone.getInput(side_disable) then
         print("Program disabled by redstone signal on the right side.")
+        sleep(10)
     elseif turtle.getItemDetail() == nil then
-        print("No bee in selected slot! Attemptig suck")
         turtle.suckDown(slot_no)
     elseif turtle.getItemDetail().name ~= "productivebees:bee_cage" then
         print("No bee in selected slot!")
+        sleep(10)
     else
         turtle.place()
         sleep(0.5)
         redstone.setOutput(signal_side, true)
         sleep(signal_duration)
         redstone.setOutput(signal_side, false)
+        sleep(0.5)
     end
-
-    sleep(3)
 end
