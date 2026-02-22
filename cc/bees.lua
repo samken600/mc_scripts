@@ -1,5 +1,5 @@
 local slot_no = 1      -- Duration of the signal in seconds
-local signal_duration = 3      -- Duration of the signal in seconds
+local signal_duration = 1      -- Duration of the signal in seconds
 local signal_side = "top"      -- Duration of the signal in seconds
 local side_disable = "back"  -- The side that disables the program
 
@@ -22,5 +22,5 @@ while true do
         redstone.setOutput(signal_side, false)
     end
 
-    sleep(10)
+    sleep(3)
 end
