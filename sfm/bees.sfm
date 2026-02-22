@@ -1,0 +1,36 @@
+name "bees"
+
+every 20 ticks do
+    input productivebees:gene from each hive
+    output to gene_indexer
+end
+
+every 20 ticks do
+    input productivebees:configurable_honeycomb from each hive
+    output to centrifuge ROUND ROBIN BY LABEL
+end
+
+every 20 ticks do
+    input productivebees:configurable_comb from each hive
+    output to heated_centrifuge ROUND ROBIN BY LABEL
+end
+
+every 20 ticks do
+    input minecraft:honeycomb from each hive
+    input minecraft:honeycomb_block from each hive
+    input the_bumblezone:pollen_puff from each hive
+    input honey_bottle from each hive
+    input chorus_fruit from each hive
+    input chorus_flower from each hive
+    input ars_nouveau:red_archwood_log from each hive
+    input from each centrifuge
+    input fluid:*:* from each centrifuge
+    output to storage_system
+    OUTPUT fluid:*:* to storage_system
+end
+
+every 20 ticks do
+    input glass_bottle from bottles
+    output glass_bottle to hive ROUND ROBIN BY LABEL
+    output glass_bottle to bottler ROUND ROBIN BY LABEL
+end
